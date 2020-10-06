@@ -1217,7 +1217,7 @@ class _HexPickerState extends State<HexPicker> {
         style: Theme.of(context).textTheme.headline.copyWith(fontSize: 20),
         focusNode: new FocusNode()..addListener(() {}),
         controller: super.widget.controller,
-        maxLength: 6,
+        //maxLength: 6,
         onChanged: (value) {
           String hex = Hex.textSubString(value);
           if (hex == null) {
