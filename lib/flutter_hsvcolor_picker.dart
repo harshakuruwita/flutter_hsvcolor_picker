@@ -1177,7 +1177,6 @@ class HexPicker extends StatefulWidget {
       : assert(color != null),
         this.controller = new TextEditingController(
             text: Hex.colorToString(color).toUpperCase()),
-        this.callBackFunction = callBackFunction,
         super(key: key);
 
   @override
