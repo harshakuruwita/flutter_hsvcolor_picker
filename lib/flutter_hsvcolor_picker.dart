@@ -1220,15 +1220,11 @@ class _HexPickerState extends State<HexPicker> {
         //maxLength: 6,
         onChanged: (value) {
           String hex = Hex.textSubString(value);
-          if (hex == null) {
-            return super.widget.color;
-          }
+          if (hex == null) {}
 
           try {
             callBackFunction(Hex.intToColor(Hex.stringToInt(hex)));
-          } catch (Exception) {
-            return super.widget.color;
-          }
+          } catch (Exception) {}
         },
         onSubmitted: this.textOnSubmitted,
         decoration: new InputDecoration.collapsed(hintText: "hex code"),
