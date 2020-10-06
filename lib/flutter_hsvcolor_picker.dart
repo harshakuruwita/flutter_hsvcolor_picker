@@ -1214,10 +1214,10 @@ class _HexPickerState extends State<HexPicker> {
       //TextField
       new Expanded(
           child: new TextField(
-        maxLength: 6,
         style: Theme.of(context).textTheme.headline.copyWith(fontSize: 20),
         focusNode: new FocusNode()..addListener(() {}),
         controller: super.widget.controller,
+        maxLength: 6,
         onChanged: (value) {
           String hex = Hex.textSubString(value);
           if (hex == null) {
