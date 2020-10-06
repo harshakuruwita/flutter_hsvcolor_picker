@@ -1211,9 +1211,13 @@ class _HexPickerState extends State<HexPicker> {
         controller: super.widget.controller,
         onChanged: (value) {
           String hex = Hex.textSubString(value);
-          if (hex == null) return super.widget.color;
+          if (hex == null) {
+            print('colour no avialable');
+            return super.widget.color;
+          }
 
           try {
+            print('colour avialable');
             return Hex.intToColor(Hex.stringToInt(hex));
           } catch (Exception) {
             return super.widget.color;
