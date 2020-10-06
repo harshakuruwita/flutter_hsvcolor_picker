@@ -1167,11 +1167,17 @@ class HexPicker extends StatefulWidget {
   final Color color;
   final ValueChanged<Color> onChanged;
   final TextEditingController controller;
+  final Function callBackFunction;
 
-  HexPicker({Key key, @required this.color, @required this.onChanged})
+  HexPicker(
+      {Key key,
+      @required this.color,
+      @required this.onChanged,
+      this.callBackFunction})
       : assert(color != null),
         this.controller = new TextEditingController(
             text: Hex.colorToString(color).toUpperCase()),
+        this.callBackFunction = callBackFunction,
         super(key: key);
 
   @override
@@ -1943,6 +1949,7 @@ class ColorPickerState extends State<ColorPicker> {
           new Expanded(
               child: new HexPicker(
             color: this._color,
+            callBackFunction: onEditCallBack,
             onChanged: (value) =>
                 super.setState(() => this._colorOnChanged(value)),
           ))
