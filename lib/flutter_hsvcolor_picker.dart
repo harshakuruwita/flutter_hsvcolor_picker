@@ -1226,10 +1226,12 @@ class _HexPickerState extends State<HexPicker> {
           }
 
           try {
+            print('colour here');
             callBackFunction(Hex.intToColor(Hex.stringToInt(hex)));
             //return Hex.intToColor(Hex.stringToInt(hex));
           } catch (Exception) {
             print('Exep');
+            callBackFunction('fffff');
             return super.widget.color;
           }
           print(value);
