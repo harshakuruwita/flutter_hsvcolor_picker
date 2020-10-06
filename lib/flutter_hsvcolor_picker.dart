@@ -1210,6 +1210,7 @@ class _HexPickerState extends State<HexPicker> {
         focusNode: new FocusNode()..addListener(() {}),
         controller: super.widget.controller,
         onChanged: (value) {
+          print(value);
           String hex = Hex.textSubString(value);
           if (hex == null) {
             print('colour no avialable');
@@ -1220,6 +1221,7 @@ class _HexPickerState extends State<HexPicker> {
             print('colour avialable');
             return Hex.intToColor(Hex.stringToInt(hex));
           } catch (Exception) {
+            print('Exep');
             return super.widget.color;
           }
           print(value);
