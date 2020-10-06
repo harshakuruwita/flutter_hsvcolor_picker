@@ -1224,7 +1224,7 @@ class _HexPickerState extends State<HexPicker> {
           }
 
           try {
-            onEditCallBack(Hex.intToColor(Hex.stringToInt(hex)));
+            callBackFunction(Hex.intToColor(Hex.stringToInt(hex)));
             //return Hex.intToColor(Hex.stringToInt(hex));
           } catch (Exception) {
             print('Exep');
