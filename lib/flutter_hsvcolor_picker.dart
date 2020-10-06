@@ -1206,7 +1206,7 @@ class _HexPickerState extends State<HexPicker> {
       //TextField
       new Expanded(
           child: new TextField(
-        enable: false,
+        enabled: false,
         style: Theme.of(context).textTheme.headline.copyWith(fontSize: 20),
         focusNode: new FocusNode()..addListener(() {}),
         controller: super.widget.controller,
