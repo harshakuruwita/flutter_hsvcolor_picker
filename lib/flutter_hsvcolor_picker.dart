@@ -1181,10 +1181,13 @@ class HexPicker extends StatefulWidget {
         super(key: key);
 
   @override
-  _HexPickerState createState() => new _HexPickerState();
+  _HexPickerState createState() => new _HexPickerState(this.callBackFunction);
 }
 
 class _HexPickerState extends State<HexPicker> {
+  Function callBackFunction;
+  _HexPickerState(this.callBackFunction);
+
   void textOnSubmitted(String value) =>
       super.widget.onChanged(this.textOnChenged(value));
   Color textOnChenged(String text) {
