@@ -1218,8 +1218,8 @@ class _HexPickerState extends State<HexPicker> {
           }
 
           try {
-            print('colour avialable');
-            return Hex.intToColor(Hex.stringToInt(hex));
+            onEditCallBack(Hex.intToColor(Hex.stringToInt(hex)));
+            //return Hex.intToColor(Hex.stringToInt(hex));
           } catch (Exception) {
             print('Exep');
             return super.widget.color;
@@ -1768,13 +1768,18 @@ class _IPicker {
 class ColorPicker extends StatefulWidget {
   final Color color;
   final ValueChanged<Color> onChanged;
+  final Function onEditCallBack;
 
   const ColorPicker(
-      {Key key, this.color = Colors.blue, @required this.onChanged})
+      {Key key,
+      this.color = Colors.blue,
+      @required this.onChanged,
+      this.onEditCallBack})
       : super(key: key);
 
   @override
-  ColorPickerState createState() => new ColorPickerState(color: this.color);
+  ColorPickerState createState() =>
+      new ColorPickerState(color: this.color, onEditCallBack: onEditCallBack);
 }
 
 class ColorPickerState extends State<ColorPicker> {
@@ -1782,14 +1787,15 @@ class ColorPickerState extends State<ColorPicker> {
   int _alpha;
   Color _color;
   HSVColor _hSVColor;
-
+  Function onEditCallBack;
   Color get color => this.color;
   set color(Color value) => this.color = value;
 
-  ColorPickerState({Color color})
+  ColorPickerState({Color color, Function onEditCallBack})
       : this._alpha = color.alpha,
         this._color = color,
-        this._hSVColor = HSVColor.fromColor(color);
+        this._hSVColor = HSVColor.fromColor(color),
+        this.onEditCallBack = onEditCallBack;
 
   void _alphaOnChanged(int value) {
     this._alpha = value;
