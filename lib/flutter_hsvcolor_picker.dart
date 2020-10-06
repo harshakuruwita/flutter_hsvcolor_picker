@@ -1218,23 +1218,16 @@ class _HexPickerState extends State<HexPicker> {
         focusNode: new FocusNode()..addListener(() {}),
         controller: super.widget.controller,
         onChanged: (value) {
-          print(value);
           String hex = Hex.textSubString(value);
           if (hex == null) {
-            print('colour no avialable');
             return super.widget.color;
           }
 
           try {
-            print('colour here');
             callBackFunction(Hex.intToColor(Hex.stringToInt(hex)));
-            //return Hex.intToColor(Hex.stringToInt(hex));
           } catch (Exception) {
-            print('Exep');
-            callBackFunction('fffff');
             return super.widget.color;
           }
-          print(value);
         },
         onSubmitted: this.textOnSubmitted,
         decoration: new InputDecoration.collapsed(hintText: "hex code"),
