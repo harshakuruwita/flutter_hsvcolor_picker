@@ -1210,6 +1210,7 @@ class _HexPickerState extends State<HexPicker> {
         focusNode: new FocusNode()..addListener(() {}),
         controller: super.widget.controller,
         onChanged: (value) {
+          super.widget.onChanged(this.textOnChenged(value));
           print(value);
         },
         onSubmitted: this.textOnSubmitted,
